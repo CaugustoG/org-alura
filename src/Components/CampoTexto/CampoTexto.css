@@ -7,7 +7,7 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 600;   
     display: block;
     margin-bottom : 8px;
 }
@@ -21,4 +21,5 @@
     outline-color: #6278F7;
     border-radius: 5px;
     font : 16px;
+    box-sizing: border-box;
 }
