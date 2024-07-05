@@ -14,7 +14,7 @@ const Formulario = () => {
     const manejarEnvio = (e) => {
         // e.preventDefult le quita la responsibilidad al navegador para continuar con los evento automaticos
         e.preventDefault()
-        console.log("manejar envio", e)
+        //console.log("manejar envio", e)
         // esta constante datosAEnviar es un objeto, que captura los estados
         const datosAEnviar = {
             nombre,
