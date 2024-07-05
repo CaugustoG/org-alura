@@ -1,9 +1,21 @@
+import { useState } from "react"
 import "./MiOrg.css"
 
-const MiOrg = ()=>{
+const MiOrg = (props)=>{
+
+    //estados-hooks
+    //useState 
+    //const [nombreVariable, funcion Actualizar] = useState(valorInicial)
+
+    const [mostrar, actualizarMostrar] =useState(true)
+    //const manejarClick = ()=>{
+    //    console.log("mostrar/ocultar formulario", mostrar)
+    //    actualizarMostrar(!mostrar)
+    //}
+
     return <section className="orgSection">
         <h3 className="title">Mi Organización</h3>
-        <img src="/img/add.png" alt="add"/>
+        <img src="/img/add.png" alt="add" onClick={props.cambiarMostrar}/>
     </section>
 }
 
