@@ -13,7 +13,36 @@ function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false);
 
   //este estado, actualiza la lista de colaboradores
-  const [colaboradores, ActualizarColaboradores] = useState([]);
+  const [colaboradores, ActualizarColaboradores] = useState([{
+    equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Front End",
+    foto: "https://avatars.githubusercontent.com/u/85918673?s=400&u=42c4270af4f81bded17cf5d267645454b7422154&v=4",
+    nombre: "César Gómez",
+    puesto: "Diseño UI"
+  },
+  {
+    equipo: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor"
+  },
+  {
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack"
+  }]);
 
   //registro de colaborador
   const registrarColaborador = (colaborador) => {
