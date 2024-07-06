@@ -5,6 +5,7 @@ import Formulario from "./Components/Formulario";
 import Header from "./Components/Header";
 import MiOrg from "./Components/MiOrg";
 import Equipo from "./Components/Equipo";
+import Footer from "./Components/Footer";
 
 function App() {
   //HOOKS--
@@ -82,6 +83,7 @@ function App() {
         />
       )
     }
+    <Footer/>
     </div>
   );
 }
