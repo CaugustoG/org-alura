@@ -7,10 +7,19 @@ import MiOrg from "./Components/MiOrg";
 import Equipo from "./Components/Equipo";
 
 function App() {
-  // sintaxix de uso del useState(), este companente oculta o muestra el formullario
+  //HOOKS--
+  // sintaxix de uso del useState(), este companente oculta o muestra el formulario
   const [mostrarFormulario, actualizarMostrar] = useState(false);
 
-  // ternarios --> condicion seMuestra : NoSeMuestra
+  //este estado, actualiza la lista de colaboradores
+  const [colaboradores, ActualizarColaboradores] = useState([]);
+
+  //registro de colaborador
+  const registrarColaborador = (colaborador) => {
+    console.log("nuevo colaborador:", registrarColaborador);
+    //SPREAD OPERATOR [...lista, lista] toma una lista existente y agrega un objeto en la cola
+    ActualizarColaboradores([...colaboradores, colaborador])
+  };
 
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario);
@@ -59,14 +68,20 @@ function App() {
     <div>
       <Header />
       {mostrarFormulario && (
-        <Formulario equipos={equipos.map((equipo) => equipo.titulo)} />
+        <Formulario
+          equipos={equipos.map((equipo) => equipo.titulo)}
+          registrarColaborador={registrarColaborador}
+        />
       )}
       <MiOrg cambiarMostrar={cambiarMostrar} />
 
-      {equipos.map((equipo) => {
-        console.log("equipo:", Equipo);
-        return <Equipo datos={equipo} key={equipo.titulo} />;
-      })}
+      {equipos.map((equipo) => <Equipo
+        datos={equipo}
+        key={equipo.titulo}
+        colaboradores={colaboradores.filter (colaborador => colaborador.equipo === equipo.titulo)}
+        />
+      )
+    }
     </div>
   );
 }

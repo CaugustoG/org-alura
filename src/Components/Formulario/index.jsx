@@ -11,6 +11,9 @@ const Formulario = (props) => {
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarEquipo] = useState("")
 
+    //Desturcturacion
+    const {registrarColaborador} = props
+
     const manejarEnvio = (e) => {
         // e.preventDefult le quita la responsibilidad al navegador para continuar con los evento automaticos
         e.preventDefault()
@@ -22,8 +25,7 @@ const Formulario = (props) => {
             foto,
             equipo
         }
-        console.log("datos a enviar", datosAEnviar)
-
+        registrarColaborador(datosAEnviar)
     }
 
     return <section className="formulario">

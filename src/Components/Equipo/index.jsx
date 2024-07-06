@@ -5,24 +5,20 @@ import Colaborador from "../Colaborador"
 
 const Equipo = (props) => {
     //destructuracion del objeto datos
-    const {colorPrimario, colorSecundario, titulo} = props.datos
+    const { colorPrimario, colorSecundario, titulo } = props.datos
+
+    const { colaboradores } = props
 
     const obj = {
-        backgroundColor: colorSecundario  
+        backgroundColor: colorSecundario
     }
 
-    const estiloTitulo = {borderColor: colorPrimario}
+    const estiloTitulo = { borderColor: colorPrimario }
 
     return <section className="equipo" style={obj}>
         <h3 style={estiloTitulo}>{titulo}</h3>
         <div className="colaboradores">
-            <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
-            <Colaborador/>
+            {colaboradores.map((colaborador, index) => <Colaborador datos={colaborador} key={index} />)}
         </div>
     </section>
 }
