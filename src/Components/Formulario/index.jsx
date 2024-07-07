@@ -12,7 +12,7 @@ const Formulario = (props) => {
     const [equipo, actualizarEquipo] = useState("")
 
     //Desturcturacion
-    const {registrarColaborador} = props
+    const { registrarColaborador } = props
 
     const manejarEnvio = (e) => {
         // e.preventDefult le quita la responsibilidad al navegador para continuar con los evento automaticos
@@ -53,7 +53,7 @@ const Formulario = (props) => {
                 actualizarValor={actualizarFoto}
             />
             <ListaOpciones
-                valor={equipo} 
+                valor={equipo}
                 actualizarEquipo={actualizarEquipo}
                 equipos={props.equipos}
             />
