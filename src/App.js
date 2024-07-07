@@ -1,6 +1,6 @@
 //IMPORTACIONES --
 import { useState } from "react";
-import { v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
 import "./App.css";
 import Formulario from "./Components/Formulario";
@@ -25,6 +25,7 @@ function App() {
       foto: "https://github.com/harlandlohora.png",
       nombre: "Harland Lohora",
       puesto: "Instructor",
+      fav: true,
     },
     {
       id: uuid(),
@@ -32,6 +33,7 @@ function App() {
       foto: "https://avatars.githubusercontent.com/u/85918673?s=400&u=42c4270af4f81bded17cf5d267645454b7422154&v=4",
       nombre: "César Gómez",
       puesto: "Diseño UI",
+      fav: false,
     },
     {
       id: uuid(),
@@ -39,6 +41,7 @@ function App() {
       foto: "https://github.com/JeanmarieAluraLatam.png",
       nombre: "Jeanmarie Quijada",
       puesto: "Instructora en Alura Latam",
+      fav: true,
     },
     {
       id: uuid(),
@@ -46,6 +49,7 @@ function App() {
       foto: "https://github.com/christianpva.png",
       nombre: "Christian Velasco",
       puesto: "Head de Alura e Instructor",
+      fav: true,
     },
     {
       id: uuid(),
@@ -53,6 +57,7 @@ function App() {
       foto: "https://github.com/JoseDarioGonzalezCha.png",
       nombre: "Jose Gonzalez",
       puesto: "Dev FullStack",
+      fav: false,
     },
   ]);
   //Actualiza lista de equipos
@@ -69,7 +74,8 @@ function App() {
       colorPrimario: "#82CFFA",
       colorSecundario: "#E8F8FF",
     },
-    {id: uuid(),
+    {
+      id: uuid(),
       titulo: "Data Science",
       colorPrimario: "#A6D157",
       colorSecundario: "#F0F8E2",
@@ -117,13 +123,15 @@ function App() {
 
   const eliminarColaborador = (id) => {
     console.log("eliminar colaborador", id);
-    const nuevosColaboradores = colaboradores.filter((colaborador) => colaborador.id !== id)
-    ActualizarColaboradores(nuevosColaboradores)
-  }; 
+    const nuevosColaboradores = colaboradores.filter(
+      (colaborador) => colaborador.id !== id
+    );
+    ActualizarColaboradores(nuevosColaboradores);
+  };
 
   //ACTUALIZAR COLOR DE EQUIPO
   const actualizarColor = (color, id) => {
-    // Esta funcion recorre el useState de equipos, 
+    // Esta funcion recorre el useState de equipos,
     const equipoActualizados = equipos.map((equipo) => {
       if (equipo.id === id) {
         equipo.colorPrimario = color;
@@ -135,6 +143,23 @@ function App() {
     actualizarEquios(equipoActualizados);
   };
 
+  //CREAR EQUIPO
+  const crearEquipo = (nuevoEquipo) => {
+    console.log(nuevoEquipo);
+    actualizarEquios([...equipos, { ...nuevoEquipo, id: uuid() }]);
+  };
+
+  const like = (id) => {
+    console.log("like", id);
+    const colaboradoresActualizado = colaboradores.map((colaborador) => {
+      if (colaborador.id === id) {
+        colaborador.fav = !colaborador.fav;
+      }
+      return colaborador
+    })
+    ActualizarColaboradores(colaboradoresActualizado)
+  };
+
   // RETORNO --
 
   return (
@@ -144,6 +169,7 @@ function App() {
         <Formulario
           equipos={equipos.map((equipo) => equipo.titulo)}
           registrarColaborador={registrarColaborador}
+          crearEquipo={crearEquipo}
         />
       )}
       <MiOrg cambiarMostrar={cambiarMostrar} />
@@ -157,6 +183,7 @@ function App() {
           )}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
+          like={like}
         />
       ))}
       <Footer />

@@ -2,6 +2,7 @@ import "./ListaOpciones.css"
 
 const ListaOpciones = (props) => {
 
+
     const equipos = [
         "Programación",
         "Front End",
@@ -11,6 +12,8 @@ const ListaOpciones = (props) => {
         "Móvil",
         "Innovación y Gestión",
     ]
+
+    console.log(ListaOpciones)
     // esta funcion recibe el UseState actualizarEquipo de manera externa, desde el componente padre formulario.
     const ManejarCambio = (e)=>{
         console.log("cambio", e.target.value)
